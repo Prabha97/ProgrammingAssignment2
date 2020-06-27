@@ -27,22 +27,22 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## this function calculates the mean of the special "vector" created with the makeCacheMatrix function.
-cacheSolve <- function(x, ...) { ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix function.
+##  ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix function.
+cacheSolve <- function(x, ...) {
       ## Return a matrix that is the inverse of 'x'
-      ## first checks to see if the mean has already been calculated. 
+      ## first checks to see if the inverse has already been calculated. 
  
       inver <- x$getInverse()
       
       if(!is.null(inver)) {
-        ## gets the mean from the cache and skips the computation.
+        ## gets the inverse from the cache and skips the computation.
         message("getting cached data")
         return(inver)
       }
       data <- x$get()
-      ## calculates the mean of the data.
+      ## calculates the inverse of the data.
       inver <- inverse(data, ...)
-      ## sets the value of the mean in the cache via the setmean function.
+      ## sets the value of the inverse in the cache via the setmean function.
       x$setInverse(inver)
       inver
 }
